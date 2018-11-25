@@ -11,5 +11,5 @@ except OSError:
 
 gc.collect()
 
-#import boot.py
-import main.py
+import boot
+import main
