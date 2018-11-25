@@ -1,6 +1,17 @@
 import gc
 import uos
 from flashbdev import bdev
+from machine import Pin
+import os
+
+button = Pin(2, Pin.IN)
+
+def test_path(fname):
+    try:
+        os.stat(fname)
+        return True
+    except OSError:
+        return False
 
 try:
     if bdev:
@@ -12,4 +23,8 @@ except OSError:
 gc.collect()
 
 import boot
-import main
+
+if button.value():
+    print('button press detected, skipping main.py')
+elif test_path('main.py'):
+    import main
