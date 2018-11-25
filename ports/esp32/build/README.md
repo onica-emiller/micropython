@@ -5,9 +5,12 @@
     - Attempts to connect to all wlans configured in `iotanium_cfg.json` on the filesystem
     - Skips configured wlans that are not in range of the device
     - If no config exists, or all wlan connections fail, enables the AP
+    - Runs boot.py and main.py (if it exists) automatically
 - **Button held during boot:**
     - skips connecting to wlans
     - enables the AP
+    - enables webrepl
+    - skips boot.py and main.py
     
 In either case where the device enters AP mode, the onboard LED located just above the button will blink rapidly for 5 seconds.
 
@@ -57,6 +60,7 @@ WebREPL connected
 ### Test Safe Mode Button Behavior
 1. Connect to device via serial to observe console logging
 2. Test button press during boot to validate device skips wifi and enables AP
+4. Test expected execution of `boot.py` & `main.py` with/without button press
 
 ### Test IoTanium helper functions
 ```
