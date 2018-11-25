@@ -22,11 +22,12 @@ except OSError:
 
 gc.collect()
 
-
 if button.value():
     print('button press detected. skipping boot.py and main.py')
     import iotanium
+    import webrepl
     iotanium.setup() #running setup with button pressed will enable AP
+    webrepl.start()
 else:
     import boot
     if test_path('main.py'):
