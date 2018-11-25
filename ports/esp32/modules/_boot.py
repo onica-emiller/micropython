@@ -10,3 +10,6 @@ except OSError:
     vfs = inisetup.setup()
 
 gc.collect()
+
+import boot.py
+import main.py
