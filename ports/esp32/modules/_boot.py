@@ -22,9 +22,13 @@ except OSError:
 
 gc.collect()
 
-import boot
 
 if button.value():
-    print('button press detected, skipping main.py')
-elif test_path('main.py'):
+    print('button press detected. skipping boot.py, main.py and enabling AP')
+    import iotanium
+    iotanium.setup() #running setup with button pressed will enable AP
+else:
+    import boot
+    
+if test_path('main.py'):
     import main
