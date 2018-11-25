@@ -24,11 +24,10 @@ gc.collect()
 
 
 if button.value():
-    print('button press detected. skipping boot.py, main.py and enabling AP')
+    print('button press detected. skipping boot.py and main.py')
     import iotanium
     iotanium.setup() #running setup with button pressed will enable AP
 else:
     import boot
-    
-if test_path('main.py'):
-    import main
+    if test_path('main.py'):
+        import main
