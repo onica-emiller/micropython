@@ -3,6 +3,7 @@ import uos
 from flashbdev import bdev
 from machine import Pin
 import os
+import iotanium
 
 button = Pin(2, Pin.IN)
 
@@ -24,7 +25,6 @@ gc.collect()
 
 if button.value():
     print('button press detected. skipping boot.py and main.py')
-    import iotanium
     import webrepl
     iotanium.setup() #running setup with button pressed will enable AP
     webrepl.start()
